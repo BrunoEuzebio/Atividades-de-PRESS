@@ -1,0 +1,29 @@
+
+#include <cstdlib>
+#include <iostream>
+#include <cstring>
+#include <locale.h>
+
+using namespace std;
+
+
+int main(int argc, char** argv) {
+    
+    setlocale (LC_ALL, "Portuguese");
+    int numero1, numero2, numero3, resultadoPreliminar, resultadoFinal;
+    cout << "Esse programa faz a soma de 3 números.""\n";
+    cout << "Insira o primeiro número a ser somado:" "\n";
+    cin >> numero1;
+    cout << "Insira o segundo número a ser somado:" "\n";
+    cin >> numero2;
+    resultadoPreliminar = numero1 + numero2 ;
+    
+    cout << "Insira o terceiro número a ser somado:" "\n";
+    cin >> numero3;
+    resultadoFinal = resultadoPreliminar + numero3;
+    cout << " O resultado da soma é:" << resultadoFinal << "\n";
+            
+
+    return 0;
+}
+
