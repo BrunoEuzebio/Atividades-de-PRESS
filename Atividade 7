@@ -1,0 +1,95 @@
+#include <iostream>
+#include <cstdlib>
+
+using namespace std;
+
+int main(int argc, char** argv) {
+    
+    float preco, qnt;
+    int codigo;
+    
+    cout << " NOME DO PEDIDO             CODIGO  " << endl;
+    cout << " Cachorro - Quente           100  " << endl;
+    cout << " Bauru simples               101  " << endl;
+    cout << " Bauru com ovo               102  " << endl;
+    cout << " Hamburguer                  103  " << endl;
+    cout << " Cheeseburger                104  " << endl;
+    cout << " Refrigerante Lata           105  " << endl; 
+    cout << " Agua                        106  " << endl; 
+    cout << endl;     
+    
+    cout << "Informe o codigo do pedido desejado:";
+    cin >> codigo;
+    
+    switch(codigo){
+      
+        case 100:
+         cout << "Voce selecionou Cachorro - Quente!" << endl;   
+         cout << "Insira a quantidade de produtos:";
+         cin>> qnt;
+         
+         preco = qnt * 9.20;
+         cout << "O preco é de:" << preco << endl;
+         
+       break;     
+        case 101:
+         cout << "Voce selecionou Bauru Simples!" << endl;   
+         cout << "Insira a quantitade de produtos:";
+         cin>> qnt;
+         
+         preco = qnt * 12.00;
+         cout << "O preco é de:" << preco << endl;
+       break;
+       
+        case 102:
+         cout << "Voce selecionou Bauru co ovo!" << endl;   
+         cout << "Insira a quantitade de produtos:";
+         cin>> qnt;
+         
+         preco = qnt * 13.00;
+         cout << "O preco é de:" << preco << endl;
+       break;   
+       
+        case 103:
+         cout << "Voce selecionou Hamburguer!" << endl;   
+         cout << "Insira a quantitade de produtos:";
+         cin>> qnt;
+         
+         preco = qnt * 10.00;
+         cout << "O preco é de:" << preco << endl;
+       break;   
+       
+        case 104:
+         cout << "Voce selecionou Cheeseburguer!" << endl;   
+         cout << "Insira a quantitade de produtos:";
+         cin>> qnt;
+         
+         preco = qnt * 12.00;
+         cout << "O preco é de:" << preco << endl;
+       break;  
+       
+        case 105:
+         cout << "Voce selecionou Refrigerante - Lata!" << endl;   
+         cout << "Insira a quantitade de produtos:";
+         cin>> qnt;
+         
+         preco = qnt * 5.00;
+         cout << "O preco é de:" << preco << endl;
+       break;    
+       
+        case 106:
+         cout << "Voce selecionou Agua!" << endl;   
+         cout << "Insira a quantitade de produtos:";
+         cin>> qnt;
+         
+         preco = qnt * 3.00;
+         cout << "O preco é de:" << preco << endl;
+       break;  
+       
+        default:
+            cout << "Operação inválida!";
+    }
+
+  
+}
+
