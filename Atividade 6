@@ -1,0 +1,26 @@
+#include <iostream>
+#include <cstdlib>
+
+using namespace std;
+
+int main(int argc, char** argv) {
+
+    int num;
+    
+    cout << "Insira um numero qualquer :";
+    cin >> num;
+    
+    if (num > 0)
+        
+        cout << "O numero é positivo !";
+    
+    if (num < 0)
+        
+      cout << "O numero é negativo !";  
+    
+    else if (num ==0)
+        
+        cout << "O numero é neutro!";
+    return 0;
+}
+
