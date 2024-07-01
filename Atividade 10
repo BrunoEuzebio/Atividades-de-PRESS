@@ -1,0 +1,73 @@
+#include<iostream>
+#include <cstdlib>
+
+using namespace std;
+
+
+int main(int argc, char** argv) {
+
+    string matricula,conceito;
+    float n1,n2,n3, media;
+    
+    cout << "Insira a matricula do aluno:" << endl;
+    cin >> matricula;
+    
+    cout <<" Insira a  primeira nota do aluno:" << endl;
+    cin >> n1;
+    cout <<" Insira a  segunda nota do aluno:" << endl;
+    cin >> n2;
+    cout <<" Insira a  terceira nota do aluno:" << endl;
+    cin >> n3;
+    
+    media = (n1 + n2* 2 +n3 * 3)/6;
+    
+    if (media >= 9.0)
+    {    
+        conceito = "A";
+    }
+    else if (media >= 7.5 && media < 9.0)
+    {
+        conceito = "B";
+    }
+    else if (media >= 6.0 && media < 7.5)
+    {    
+        conceito = "C";
+    } 
+    else if (media >= 4.0 && media < 6.0)
+    {    
+        conceito = "D";
+    }
+    else if (media < 4.0)
+    {    
+        conceito = "E";
+}
+
+       cout << " Matricula :" << matricula << endl;
+       cout << "Nota 1 :" << n1 << endl;
+       cout << "Nota 2 :" << n2 << endl;
+       cout << "Nota 3 :" << n3 << endl;
+       
+       if ( conceito == "A")
+       {    
+           cout << "Voce foi aprovado !!!!";
+       }   
+       else if ( conceito == "B")
+       {   
+           cout << "Voce foi aprovado !!!!";
+       } 
+       else if ( conceito == "C")
+       {   
+           cout << "Voce foi aprovado !!!!";
+       }
+       else if ( conceito == "D")
+       {   
+           cout << "Voce foi reprovado !!!!";
+       }
+       else if ( conceito == "E")
+       {   
+           cout << "Voce foi reprovado !!!!";
+       }
+
+    return 0;
+}
+
