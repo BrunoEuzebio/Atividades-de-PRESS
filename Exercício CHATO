@@ -1,1 +1,462 @@
 
+#include <iostream> 
+#include <string> 
+#include <cstdlib> 
+#include <ctime> 
+#include <stdio.h> 
+
+using namespace std;
+
+void init(int board[][3]);         
+char printBlock(int block);         
+void show(int board[][3]);         
+void playMove(int board[][3], int); 
+int checkContinue(int *board[3]);   
+int checkWin(int *board[3]);        
+int game(int board[][3]);           
+void scoreboard(int, int &, int &); 
+
+#define CHANCES 6
+#define EMPTY_WORD 45
+#define PIPE 124
+#define UNDERLINE 95
+#define LEFT_BAR 47
+#define RIGHT_BAR 92
+#define CABECA 48
+
+int main(int argc, char** argv) {
+
+    int num,idade;
+    string nome;
+    char apelido, inicioBatePapo,jogodavelha,continuar,crianca;
+    int cidade;
+    cout << "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n";
+
+    cout << " 👨‍💻 : Seja bem vindo ao nosso bate papo!\n" << endl ;
+    cout << " 👨‍💻 : Aqui você pode interagir comigo,seu assistente virtual!" << endl;
+    cout << " 👨‍💻 : Eai,bora iniciar um bate-papo?\n";
+    cout << " 👨‍💻 : Insira apenas S para Sim / N para NÃO: \n ➥ ";
+    cin>> inicioBatePapo;
+    
+    switch(inicioBatePapo)
+    {
+        case 's':
+        case 'S':
+    cout << "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n";
+    cout << "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n";
+            cout << " 👨‍💻 : Será um prazer conversar com você!\n";
+            cout << " 👨‍💻 : Deixe-me apresentar,meu nome é Thomas!\n";
+        break;
+        
+        case 'n':
+        case'N':
+            cout << " 👨‍💻 : Tudo bem,suspeitei que você fosse chato mesmo!";
+            return 0;
+        break;
+        
+        default:
+            cout << " 👨‍💻 : Eu disse pra você usar APENAS S e N teimoso/a!" << endl <<"Volte e tente de novo com AS MINHAS OPÇÕES!\n";
+        return 0;
+        
+    }
+    cout << " 👨‍💻 : Agora que me apresentei preciso que você também se apresente!\n";
+    cout << " 👨‍💻 : Insira seu nome para que eu possa usar sempre que necessário:\n ➥ ";
+    cin >> nome;
+    cout << "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n";
+    cout << "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n";
+    
+    cout << " 👨‍💻 : Então seu nome é " << nome << "...hmmmm,belo nome em!Pensando bem vou usar um apelido pra você,posso? s/n? \n ➥ ";
+    cin>> apelido;
+    
+    switch(apelido)
+    {
+        case 's':
+            cout << " 👨‍💻 : A partir de agora seu nome é Roubar!\n";
+            cout << " 👨‍💻 : Dizem que roubar é feio,combina com você!\n"<< endl;
+        break;
+        case 'n':
+            cout << " 👨‍💻 : Sério? que pena!...Seu apelido vai ser Roubar,você querendo ou não!\n" << endl;
+            cout << " 👨‍💻 : Dizem que roubar é feio,combina com você!\n"<< endl;
+        break;
+        default: 
+            cout << "Eu disse pra você usar APENAS S e N teimoso/a!" << endl << "Volte e tente de novo com AS MINHAS OPÇÕES!\n";
+            return 0;
+    } 
+    
+    {
+    cout << " 👨‍💻 : Digite sua idade para que eu saiba se você é um adulto SEM NADA PRA FAZER,ou uma criancinha amorosa!!!!: \n ➥ ";
+    cin>>idade;
+    
+   if( idade >= 18 ){
+        
+   cout << "Infelizmente meus jogos foram feitos apenas para crianças!\n";
+   cout << "Achei que adultos trabalhassem,ao invés de ficarem atoa!\n";
+   cout << "Mas já que esta aqui mesmo...Deseja continuar?s/n \n ➥ ";
+   cin>> continuar;
+   
+   cout << "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n";
+   cout << "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n";
+   switch(continuar)
+    {
+        case 's':
+        case'S':
+            cout << " 👨‍💻 : Se fosse uma Carteira de Trabalho Assinada não continuava né!\n";
+    cout << "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n";
+   
+    
+        break;
+        case 'n':
+        case 'N':
+    cout << " 👨‍💻 : Aproveita e procura um trabalho!\n" << endl;
+    cout << "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n";         
+    cout << "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n";
+    
+               return 0;
+        break;
+        default: 
+            cout << "Eu disse pra você usar APENAS S e N teimoso/a!" << endl << "Volte e tente de novo com AS MINHAS OPÇÕES!\n";
+            return 0;
+    }     
+    }  
+   else 
+       
+    cout << " 👨‍💻 :Ahhh,que criancinha adorável! \n";
+    
+    cout << "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n";
+    }
+
+    cout << " 👨‍💻 : Vamos,descontrair um pouco!\n";
+    cout << " 👨‍💻 : Vamos jogar uma forca,aposto que você perde! 🎮 \n";
+   cout << "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n";
+   cout << "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n";
+ 
+
+ char jogador [8] = "Roubar";
+ char palavra[10];
+ char letra;
+ int palavra_sorteada, i, jogar_novamente;
+ int quantidate_letras, erros, acertos;
+ bool letra_correta, vencedor;
+
+ string palavras_secretas [] = {"caneta","borracha","caderno","caneca","barbante","celular","pano","luz","panela","filme","televisao","mesa","amor","parede","trabalho","toalha","amnesia","torrada","vestido","lobo"};
+
+ srand(time (NULL)); // Regra para sorteio.
+
+ do {
+palavra_sorteada = rand () % 20; // Regra de limite do sorteio.
+
+for(i = 0; i < 10; i++)
+{
+  palavra[i]= palavras_secretas[palavra_sorteada][i];
+}
+
+quantidate_letras = palavras_secretas[palavra_sorteada].length();
+erros   = 0;
+acertos = 0;
+letra_correta;
+vencedor = false;
+
+string descoberto = string(quantidate_letras, '-');
+
+while( erros <= CHANCES && acertos <= quantidate_letras ) {
+  letra_correta = false;
+
+  cout << " 👨‍💻 : Roubar, insira seu palpite:" << endl;
+  cout << " 👨‍💻 : Voce possui:" << ' ' << CHANCES - erros << ' ' << "chances." << endl;
+  cout << " 👨‍💻 : Voce acertou:" << ' ' << acertos << ' ' << " letras ✔ " << endl;
+
+  
+
+  switch (erros){
+	case 0:
+	  cout << (char)UNDERLINE;
+	  cout << (char)UNDERLINE;
+	  cout << (char)UNDERLINE << endl;
+	  cout << ' ' << ' ' << ' ' << (char)PIPE << endl << "\n";
+          
+	  break;
+	case 1:
+	  cout << (char)UNDERLINE;
+	  cout << (char)UNDERLINE;
+	  cout << (char)UNDERLINE << endl;
+	  cout << ' ' << ' ' << ' ' << (char)PIPE << endl;
+	  cout << ' ' << ' ' << ' ' << (char) CABECA << endl << "\n";
+	  break;
+	case 2:
+	  cout << (char)UNDERLINE;
+	  cout << (char)UNDERLINE;
+	  cout << (char)UNDERLINE << endl;
+	  cout << ' ' << ' ' << ' ' << (char)PIPE << endl;
+	  cout << ' ' << ' ' << ' ' << (char) CABECA << endl;
+	  cout << ' ' << ' ' << ' ' << (char)PIPE << endl << "\n";
+	  break;
+	case 3:
+	  cout << (char)UNDERLINE;
+	  cout << (char)UNDERLINE;
+	  cout << (char)UNDERLINE << endl;
+	  cout << ' ' << ' ' << ' ' << (char)PIPE << endl;
+	  cout << ' ' << ' ' << ' ' << (char) CABECA << endl;
+	  cout << ' ' << ' ' << ' ' << (char)PIPE << endl;
+	  cout << ' ' << ' ' << (char)LEFT_BAR << endl << "\n";
+	  break;
+	case 4:
+	  cout << (char)UNDERLINE;
+	  cout << (char)UNDERLINE;
+	  cout << (char)UNDERLINE << endl;
+	  cout << ' ' << ' ' << ' ' << (char)PIPE << endl;
+	  cout << ' ' << ' ' << ' ' << (char) CABECA << endl;
+	  cout << ' ' << ' ' << ' ' << (char)PIPE << endl;
+	  cout << ' ' << ' ' << (char)LEFT_BAR;
+	  cout << ' ' << (char)RIGHT_BAR << endl << "\n";
+	  break;
+	case 5:
+	  cout << (char)UNDERLINE;
+	  cout << (char)UNDERLINE;
+	  cout << (char)UNDERLINE << endl;
+	  cout << ' ' << ' ' << ' ' << (char)PIPE << endl;
+	  cout << ' ' << ' ' << ' ' << (char) CABECA << endl;
+	  cout << ' ' << ' ' << (char)LEFT_BAR << (char)PIPE << endl;
+	  cout << ' ' << ' ' << (char)LEFT_BAR;
+	  cout << ' ' << (char)RIGHT_BAR << endl << "\n";
+	  break;
+	case 6:
+	  cout << (char)UNDERLINE;
+	  cout << (char)UNDERLINE;
+	  cout << (char)UNDERLINE << endl;
+	  cout << ' ' << ' ' << ' ' << (char)PIPE << endl;
+	  cout << ' ' << ' ' << ' ' << (char) CABECA << endl;
+	  cout << ' ' << ' ' << (char)LEFT_BAR << (char)PIPE << (char)RIGHT_BAR << endl;
+	  cout << ' ' << ' ' << (char)LEFT_BAR;
+	  cout << ' ' << (char)RIGHT_BAR << endl << "\n";
+	  break;
+  }
+
+  cout << descoberto << endl;
+
+  
+  if (acertos >= quantidate_letras) {
+	vencedor = true;
+	break;
+  }else if(erros >= CHANCES) {
+	break;
+  }
+
+ 
+  letra = getchar();
+
+  
+  if(letra == '\n')
+	continue;
+
+  for(i = 0; i < quantidate_letras; i++)
+  {
+	
+	if(palavra[i] == letra) {
+	  if(descoberto[i] != letra) {
+		descoberto[i] = letra;
+		acertos++;
+	  }
+
+	  letra_correta = true;
+	}
+  }
+
+  if(!letra_correta)
+	erros++;
+
+}
+
+if( vencedor )
+  cout<<" 👨‍💻 : \n\tPARABENS!!!\n Voce ganhou!\n\n";
+else
+  cout<<" 👨‍💻 : \n\tNão foi dessa vez.\n Palavra correta: " << palavra << "\n\n" << endl;
+ cout << "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n";
+ cout << "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n";
+  
+cout << " 👨‍💻 : Deseja jogar novamente? Se sim, tecle 1, senao, tecle 2!" << endl;
+cin >> jogar_novamente;
+
+ }while(jogar_novamente == 1);
+ 
+ cout << "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n";
+ cout << "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n";
+cout << " 👨‍💻 : Vamos jogar um jogo da velha agora! ⌗ 🎮 ";
+
+
+  int board[3][3];
+
+    int cont=0, player1=0, player2=0, result;
+    do{
+        init(board);
+        result = game(board);
+        show(board);
+        scoreboard(result, player1, player2);
+
+        cout<<"\n  👨‍💻 : Outra partida?"<<endl;
+        cout<<" 0 - Sair"<<endl;
+        cout<<" 1 - Jogar de novo"<<endl;
+        cin >> cont;
+    }while(cont);
+
+    return 0;
+}
+
+void init(int board[][3])
+{
+    for(int i=0; i<3; i++)
+        for(int j=0; j<3; j++)
+            board[i][j]=0;
+
+}
+
+char printBlock(int block)
+{
+    if(block==0)
+        return ' ';
+    else if(block==1)
+        return 'X';
+    else
+        return 'O';
+}
+
+void show(int board[][3])
+{
+    cout<<endl;
+    for(int row=0 ; row<3 ; row++){
+        cout<<" "<< printBlock(board[row][0]) <<" |";
+        cout<<" "<< printBlock(board[row][1]) <<" |";
+        cout<<" "<< printBlock(board[row][2]) <<endl;
+
+        if(row!=2){
+            cout<<"___ ___ ___\n"<<endl;
+        }
+    }
+}
+
+void playMove(int board[][3], int player)
+{
+    int row, col, check;
+    do{
+        cout<<" ⭢ : Linha: ";
+        cin >>row;
+        cout<<" ⭣ : Coluna: ";
+        cin >> col;
+        row--; col--;
+
+        check = board[row][col] || row<0 || row>2 || col<0 || col>2;
+        if(check)
+            cout<<" 👨‍💻 : Casa ocupada ou posição inválida"<<endl;
+
+    }while(check);
+
+    if(player==0)
+        board[row][col]=1;
+    else
+        board[row][col]=-1;
+}
+
+int checkContinue(int board[][3])
+{
+    for(int i=0 ; i<3 ; i++)
+        for(int j=0 ; j<3 ; j++)
+            if(board[i][j]==0)
+                return 1;
+    return 0;
+}
+
+int checkWin(int board[][3])
+{
+    int row, col, sum;
+
+
+    for(row=0 ; row<3 ; row++){
+        sum=0;
+
+        for(col=0 ; col<3 ; col++)
+            sum += board[row][col];
+
+        if(sum==3)
+            return 1;
+        if(sum==-3)
+            return -1;
+    }
+
+
+    for(col=0 ; col<3 ; col++){
+        sum=0;
+
+        for(row=0 ; row<3 ; row++)
+            sum += board[row][col];
+
+        if(sum==3)
+            return 1;
+        if(sum==-3)
+            return -1;
+    }
+
+    sum=0;
+    for(row=0 ; row<3 ; row++)
+        sum += board[row][row];
+    if(sum==3)
+        return 1;
+    if(sum==-3)
+        return -1;
+
+    sum=board[0][2]+board[1][1]+board[2][0];
+    if(sum==3)
+        return 1;
+    if(sum==-3)
+        return -1;
+
+    return 0;
+}
+
+int game(int board[][3])
+{
+    int turn=0, cont, win;
+
+    do{
+        show(board);
+        cout<<" 👤: Jogador "<<1+turn%2<<endl;
+        playMove(board, turn%2);
+        turn++;
+
+        cont=checkContinue(board);
+        win = checkWin(board);
+    }while(cont && !win);
+
+    if(win==1){
+        cout<<" 👨‍💻 : Jogador 1 ganhou! ♛ \n"<<endl;
+        return 1;
+        
+    }else
+        if(win==-1){
+            cout<<" 👨‍💻 : Jogador 2 ganhou! ♛ \n"<<endl;
+       
+            return 2;w
+    }else
+        cout<<" 👨‍💻 : Empate\n"<<endl;
+   
+    return 0;
+}
+
+void scoreboard(int result, int &player1, int &player2)
+{
+    if(result==1)
+        player1++;
+    if(result==2)
+        player2++;
+
+    cout<<" 👨‍💻 : Placar: "<<endl;
+    cout<<player1<<" x "<<player2<<endl;
+    
+    
+}
+
+
+
+
+
+    
+ 
+    
