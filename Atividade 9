@@ -1,0 +1,35 @@
+#include <iostream>
+#include <cstdlib>
+
+using namespace std;
+
+int main(int argc, char** argv) {
+
+    int num;
+    
+    
+    cout << "Insira um numero inteiro qualquer:";
+    cin >> num;
+    
+    if( num >= 0){
+        
+     if (num% 2 ==0){
+  
+         cout << "O numero" << num << " é par!" << endl;
+     }
+     else if (num% 2 ==1){
+  
+         cout << "O numero" << num <<" é ímpar!" << endl;
+     }
+     else 
+     {
+         cout << "Opção invalida";
+         
+     }
+     return 0;
+    }
+   
+}
+   
+        
+
