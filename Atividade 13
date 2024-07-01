@@ -1,0 +1,23 @@
+#include <iostream>
+#include <cstdlib>
+
+using namespace std;
+
+int main(int argc, char** argv) {
+
+    int num,i,soma = 0;
+    float media ;
+    
+     for (i = 0; i < 20; i++){
+        cout << "Informe um numero:";
+        cin >> num;
+        
+        if (num  %2 == 0 ){
+            soma = soma + num;
+        }
+     }
+         media = soma /20;
+            cout << " A media é :" << media ;  
+    return 0;
+}
+
