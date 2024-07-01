@@ -1,0 +1,40 @@
+#include <iostream>
+#include <cstdlib>
+
+using namespace std;
+
+int main(int argc, char** argv) {
+
+    float salario,mediaF,mediaS,somaFilho = 0 ,somaSalario = 0,maiorSalario = 0;
+    int filho,i;
+    
+     for (i = 0; i < 15; i++){
+        cout << "Informe seu salario:" << endl;
+        cin >> salario;
+        cout << "Informe o numero de filhos:" <<endl;
+        cin >> filho;
+        
+        somaSalario= somaSalario + salario;
+        somaFilho = somaFilho + filho;
+        
+        
+        if (salario > maiorSalario){
+            maiorSalario = salario;
+     } 
+     }
+        mediaS = somaSalario / 15;
+        mediaF = somaFilho / 15 ;
+        
+        
+    cout << "A media de salario foi de:" << mediaS << endl;  
+    cout << "A media de filhos foi de :" << mediaF << endl;
+    cout << "O maior salario foi de :" << maiorSalario << endl;
+    return 0;
+}
+    
+
+ 
+       
+
+
+
