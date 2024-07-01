@@ -1,0 +1,21 @@
+
+#include <cstdlib>
+#include <iostream>
+
+using namespace std;
+
+
+int main(int argc, char** argv) {
+   
+    int salario = 1000;
+    int comissao = 5;
+    int valorVendas, salarioFinal;
+    
+    cout << "Insira o valor total de vendas:";
+    cin >> valorVendas;
+    
+    salarioFinal = salario +((valorVendas + comissao));
+    cout << "O salario final é de:" << salarioFinal;
+    return 0;
+}
+
