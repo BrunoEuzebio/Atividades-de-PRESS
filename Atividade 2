@@ -1,0 +1,19 @@
+#include <iostream>
+#include <cstdlib>
+#include<locale>
+using namespace std;
+
+
+int main(int argc, char** argv) {
+    setlocale (LC_ALL,"Portuguese");
+    string nome;
+    cout << "Insira seu nome:";
+    cin >> nome;
+    cout << "Meu nome é" << nome <<endl ;
+    cout << "Sou do curso de Sistemas de Infomação." <<endl;
+    cout << "Estou no primeiro ano." << endl;
+    cout << "Gosto de programação."<< endl;
+            
+    return 0;
+}
+
