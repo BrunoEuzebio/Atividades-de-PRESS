@@ -1,0 +1,20 @@
+
+#include <cstdlib>
+#include <iostream>
+
+using namespace std;
+
+
+int main(int argc, char** argv) {
+    int nota1, nota2, mediaFinal;
+    cout << "Insira a primeira nota:""\n";
+    cin >> nota1;
+    cout << "Insira a segunda nota:""\n";
+    cin >> nota2;
+    mediaFinal = ((nota1 + nota2 )/2);
+    cout << "A media final é:" << mediaFinal;
+    
+    return 0;
+}
+
+
